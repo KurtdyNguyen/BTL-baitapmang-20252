@@ -6,7 +6,7 @@ import App from '@/App.jsx'
 
 const queryClient = new QueryClient()
 
-createRoot(document.getElementById('spacer-row')).render(
+createRoot(document.getElementById('content-table')).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <App />

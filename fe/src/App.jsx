@@ -10,11 +10,11 @@ export default function App() {
   const itemIds = topStories?.slice(0, 30) || []
 
   return (
-    <div>
+    <tbody>
       {itemIds.map(id => (
         <ItemRow key={id} itemId={id} />
       ))}
-    </div>
+    </tbody>
   )
 }
 
@@ -24,5 +24,5 @@ function ItemRow({ itemId }) {
   if (isLoading) return <div>Loading...</div>
   if (error) return <div>Error: {error?.message}</div>
 
-  return <div>{JSON.stringify(item)}</div>
+  return <tr>{JSON.stringify(item)}</tr>
 }
