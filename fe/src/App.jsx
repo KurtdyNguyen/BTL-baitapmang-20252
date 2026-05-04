@@ -1,8 +1,8 @@
-import { useTopStories } from '@/features/hn/api/getList'
+import { useStories } from '@/features/hn/api/getStories'
 import { useItem } from '@/features/hn/api/getItem'
 
 export default function App() {
-  const { data: topStories, isLoading, error } = useTopStories()
+  const { data: topStories, isLoading, error } = useStories()
 
   if (isLoading) return <div>Loading...</div>
   if (error) return <div>Error: {error?.message}</div>
