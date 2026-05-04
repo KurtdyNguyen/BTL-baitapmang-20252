@@ -1,27 +1,35 @@
 # Coding Guidelines
 
+Stories, comments, jobs, Ask HNs and even polls are just items.
+
 ---
 
 ## 1. Cấu Trúc Thư Mục
 
 ```
    src
-   +-- app              # Routes (e.g., /stories/:id)
-   +-- components       # Shared UI (Button, Spinner, Layout)
-   +-- config           # Environment/API config
-   +-- features
-   |   +-- api          # Data fetching w/ axios
-   |   |   +-- getItem.ts    # Fetch any item (story/comment/etc) by ID
-   |   |   +-- getList.ts    # Fetch array of IDs (top/new/best)
-   |   +-- components   # Feature-specific UI
-   |   |   +-- StoryCard.tsx    # (Main feed) Displays: title, score, by, time, url, descendants
-   |   |   +-- StoryDetail.tsx  # (Detailed view) Displays: title, score, by, time, url, text, descendants
-   |   |   +-- Comment.tsx      # Displays: text, by, time, kids (recursive trigger)
-   |   |   +-- CommentTree.tsx  # Maps over kids, renders list of Comment.tsx
-   |   +-- types        # Interfaces for HN items
-   |
-   +-- lib              # Preconfigured Axios instance
-   +-- types            # Global types
+  +-- app               # application layer containing:
+  |   |                 # this folder might differ based on the meta framework used
+  |   +-- routes        # application routes / can also be pages
+  |   +-- app.tsx       # main application component
+  |   +-- provider.tsx  # application provider that wraps the entire application with different global providers - this might also differ based on meta framework used
+  |   +-- router.tsx    # application router configuration
+  +-- components       # Shared UI (Button, Spinner, Layout)
+  +-- config           # Environment/API config
+  +-- features
+    +-- hn
+    |   +-- api          # Data fetching w/ axios
+    |   |   +-- getItem.ts    # Fetch any item (story/comment/etc) by ID
+    |   |   +-- getList.ts    # Fetch array of IDs (top/new/best)
+    |   +-- components   # Feature-specific UI
+    |   |   +-- StoryCard.tsx    # (Main feed) Displays: title, score, by, time, url, descendants
+    |   |   +-- StoryDetail.tsx  # (Detailed view) Displays: title, score, by, time, url, text, descendants
+    |   |   +-- Comment.tsx      # Displays: text, by, time, kids (recursive trigger)
+    |   |   +-- CommentTree.tsx  # Maps over kids, renders list of Comment.tsx
+    |   +-- types        # Interfaces for HN items
+    +-- user            # Username, login, user posts, etc
+  +-- lib              # Preconfigured Axios instance
+  +-- types            # Global types
 ├── App.jsx
 └── main.jsx
 ```
