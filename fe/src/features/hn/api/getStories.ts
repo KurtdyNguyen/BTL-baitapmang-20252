@@ -10,7 +10,7 @@ const storyEndpoints = {
   job: '/jobstories.json',
 };
 
-export const getStories = (type: keyof typeof storyEndpoints) =>
+export const getStories = (type: keyof typeof storyEndpoints): Promise<number[]> =>
   api.get(storyEndpoints[type]);
 
 export const getStoriesQueryOptions = (type: keyof typeof storyEndpoints) => {
@@ -20,7 +20,7 @@ export const getStoriesQueryOptions = (type: keyof typeof storyEndpoints) => {
   });
 };
 
-export const useStories = () => {
-  const type = 'top'; // get type from global state stores later, set by nav bar
+export const useStories = (type: keyof typeof storyEndpoints) => {//tôi để type là đủ kiểu như trên luôn, nếu thấy không ổn thì đặt lại thành top
+  //const type = 'top'; // get type from global state stores later, set by nav bar
   return useQuery(getStoriesQueryOptions(type));
 };
